@@ -1,0 +1,2989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MECTROZ'26 | Engineering the Future</title>
+
+<meta name="description"
+content="MECTROZ'26 - International Student Symposium on Engineering the Future. Emerging Technologies, Sustainable Innovation & Intelligent Mechanical Systems.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #05070b;
+    --bg2: #080d14;
+    --card: rgba(13, 20, 30, 0.82);
+    --border: rgba(0, 229, 255, 0.25);
+
+    --cyan: #00e5ff;
+    --blue: #168cff;
+    --green: #00ff9d;
+    --yellow: #ffd500;
+    --orange: #ff8a00;
+    --red: #ff3158;
+
+    --text: #f4fbff;
+    --muted: #8ea2b5;
+
+    --max: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,229,255,.08), transparent 25%),
+        radial-gradient(circle at 80% 40%, rgba(0,255,157,.06), transparent 25%),
+        var(--bg);
+
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(92%, var(--max));
+    margin: auto;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #030508;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    transition: .7s;
+}
+
+.loader-box {
+    text-align: center;
+}
+
+.loader-ring {
+    width: 80px;
+    height: 80px;
+
+    border: 3px solid rgba(0,229,255,.15);
+    border-top-color: var(--cyan);
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+    margin: auto auto 20px;
+}
+
+.loader-title {
+    font-family: Orbitron;
+    font-size: 18px;
+    letter-spacing: 5px;
+    color: var(--cyan);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 999;
+
+    backdrop-filter: blur(15px);
+
+    background: rgba(3,6,10,.72);
+
+    border-bottom: 1px solid rgba(0,229,255,.12);
+}
+
+.nav-inner {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: Orbitron;
+    font-weight: 800;
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+    color: var(--cyan);
+
+    text-shadow: 0 0 18px rgba(0,229,255,.6);
+}
+
+.logo span {
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #b9cad7;
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.nav-register {
+    padding: 10px 18px;
+
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+
+    border-radius: 4px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.nav-register:hover {
+    background: var(--cyan);
+    color: #001015;
+
+    box-shadow: 0 0 25px rgba(0,229,255,.4);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 90px;
+
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    right: -200px;
+    top: 150px;
+
+    background: rgba(0,229,255,.08);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: 1.15fr .85fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.badge {
+    display: inline-flex;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(0,229,255,.35);
+
+    color: var(--cyan);
+
+    background: rgba(0,229,255,.06);
+
+    font-family: Orbitron;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: Orbitron;
+
+    font-size: clamp(42px, 7vw, 88px);
+
+    line-height: .95;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 .accent {
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 15px rgba(0,229,255,.5),
+        0 0 50px rgba(0,229,255,.15);
+}
+
+.hero h2 {
+    font-size: clamp(18px, 2vw, 25px);
+
+    color: #d9e7ef;
+
+    font-weight: 600;
+
+    max-width: 750px;
+
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    max-width: 680px;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 24px;
+
+    border-radius: 4px;
+
+    font-family: Orbitron;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--cyan);
+
+    color: #001014;
+
+    box-shadow: 0 0 25px rgba(0,229,255,.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 0 40px rgba(0,229,255,.5);
+}
+
+.btn-outline {
+    border: 1px solid rgba(0,229,255,.4);
+
+    color: var(--cyan);
+
+    background: rgba(0,229,255,.03);
+}
+
+.btn-outline:hover {
+    background: rgba(0,229,255,.1);
+
+    transform: translateY(-3px);
+}
+
+/* =========================
+   HERO POSTER
+========================= */
+
+.poster-wrapper {
+    position: relative;
+
+    max-width: 470px;
+
+    margin-left: auto;
+}
+
+.poster-frame {
+    position: relative;
+
+    padding: 8px;
+
+    background:
+        linear-gradient(135deg,
+        rgba(0,229,255,.5),
+        transparent 30%,
+        transparent 70%,
+        rgba(0,255,157,.4));
+
+    clip-path: polygon(
+        0 0,
+        94% 0,
+        100% 7%,
+        100% 100%,
+        6% 100%,
+        0 93%
+    );
+}
+
+.poster-frame img {
+    width: 100%;
+
+    display: block;
+
+    background: #080d13;
+
+    clip-path: polygon(
+        0 0,
+        94% 0,
+        100% 7%,
+        100% 100%,
+        6% 100%,
+        0 93%
+    );
+}
+
+.poster-label {
+    position: absolute;
+
+    bottom: 20px;
+    left: -18px;
+
+    background: rgba(3,8,13,.9);
+
+    border: 1px solid var(--cyan);
+
+    padding: 10px 15px;
+
+    font-family: Orbitron;
+
+    font-size: 11px;
+
+    color: var(--cyan);
+
+    letter-spacing: 1px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    padding: 25px 0 80px;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.stat {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-right: 1px solid rgba(255,255,255,.08);
+}
+
+.stat:last-child {
+    border-right: 0;
+}
+
+.stat strong {
+    display: block;
+
+    font-family: Orbitron;
+
+    font-size: 32px;
+
+    color: var(--cyan);
+
+    margin-bottom: 7px;
+}
+
+.stat span {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.eyebrow {
+    color: var(--cyan);
+
+    font-family: Orbitron;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    font-family: Orbitron;
+
+    font-size: clamp(28px, 4vw, 46px);
+
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+
+    font-size: 17px;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+/* =========================
+   EVENT FILTER
+========================= */
+
+.filters {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+}
+
+.filter {
+    border: 1px solid rgba(0,229,255,.2);
+
+    background: rgba(0,229,255,.03);
+
+    color: #a9bdc9;
+
+    padding: 9px 15px;
+
+    cursor: pointer;
+
+    border-radius: 3px;
+
+    transition: .25s;
+}
+
+.filter.active,
+.filter:hover {
+    background: rgba(0,229,255,.12);
+
+    color: var(--cyan);
+
+    border-color: var(--cyan);
+}
+
+/* =========================
+   EVENTS
+========================= */
+
+.events-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.event-card {
+    position: relative;
+
+    padding: 28px;
+
+    min-height: 330px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,31,44,.9),
+            rgba(8,13,20,.9)
+        );
+
+    border: 1px solid rgba(0,229,255,.13);
+
+    overflow: hidden;
+
+    transition: transform .35s, border-color .35s;
+}
+
+.event-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -40px;
+    top: -40px;
+
+    border-radius: 50%;
+
+    background: rgba(0,229,255,.08);
+}
+
+.event-card:hover {
+    transform: translateY(-8px) rotateX(2deg);
+
+    border-color: rgba(0,229,255,.55);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.event-number {
+    font-family: Orbitron;
+
+    color: rgba(0,229,255,.35);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+.event-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(0,229,255,.3);
+
+    color: var(--cyan);
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+}
+
+.event-card h3 {
+    font-family: Orbitron;
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    color: var(--muted);
+
+    line-height: 1.55;
+
+    min-height: 72px;
+}
+
+.event-meta {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.event-type {
+    color: var(--cyan);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.seats {
+    color: #9db0bd;
+
+    font-size: 13px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.capacity {
+    margin-top: 13px;
+}
+
+.capacity-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #8194a1;
+
+    font-size: 11px;
+
+    margin-bottom: 6px;
+}
+
+.progress {
+    height: 5px;
+
+    background: rgba(255,255,255,.08);
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    width: 0%;
+
+    background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--green)
+    );
+
+    transition: width .8s ease;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: stretch;
+}
+
+.about-box {
+    background: var(--card);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    padding: 35px;
+}
+
+.about-box h3 {
+    font-family: Orbitron;
+
+    margin-bottom: 18px;
+
+    color: var(--cyan);
+}
+
+.about-box p {
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.topics {
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.topic {
+    border: 1px solid rgba(0,229,255,.12);
+
+    padding: 12px;
+
+    color: #b8c9d4;
+
+    background: rgba(0,229,255,.025);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    max-width: 900px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: rgba(0,229,255,.25);
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 1fr 80px 1fr;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+.timeline-content {
+    background: var(--card);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    padding: 25px;
+}
+
+.timeline-content h3 {
+    font-family: Orbitron;
+
+    color: var(--cyan);
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+.timeline-content p {
+    color: var(--muted);
+
+    line-height: 1.5;
+}
+
+.timeline-date {
+    text-align: center;
+
+    font-family: Orbitron;
+
+    color: white;
+
+    font-size: 11px;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+
+    background: var(--cyan);
+
+    border-radius: 50%;
+
+    margin: 10px auto;
+
+    box-shadow: 0 0 20px rgba(0,229,255,.7);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    grid-column: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    grid-column: 2;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,229,255,.07),
+            transparent 55%
+        );
+}
+
+.countdown {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 15px;
+
+    max-width: 750px;
+
+    margin: 35px auto 0;
+}
+
+.time-box {
+    padding: 25px 15px;
+
+    border: 1px solid rgba(0,229,255,.18);
+
+    background: rgba(8,15,23,.8);
+}
+
+.time-box strong {
+    display: block;
+
+    font-family: Orbitron;
+
+    font-size: 42px;
+
+    color: var(--cyan);
+
+    text-shadow: 0 0 20px rgba(0,229,255,.25);
+}
+
+.time-box span {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+/* =========================
+   PRIZES
+========================= */
+
+.prizes {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.prize {
+    text-align: center;
+
+    padding: 40px 25px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background: var(--card);
+
+    transition: .3s;
+}
+
+.prize:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0,229,255,.35);
+}
+
+.prize-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.prize h3 {
+    font-family: Orbitron;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.prize-value {
+    font-family: Orbitron;
+
+    color: var(--cyan);
+
+    font-size: 31px;
+
+    font-weight: 800;
+}
+
+/* =========================
+   REGISTER
+========================= */
+
+.register-box {
+    position: relative;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    border: 1px solid rgba(0,229,255,.3);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,229,255,.08),
+            rgba(0,255,157,.03)
+        );
+
+    overflow: hidden;
+}
+
+.register-box::before {
+    content: "MECTROZ";
+
+    position: absolute;
+
+    font-family: Orbitron;
+
+    font-size: 120px;
+
+    font-weight: 900;
+
+    color: rgba(255,255,255,.015);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    pointer-events: none;
+}
+
+.register-box h2 {
+    position: relative;
+
+    font-family: Orbitron;
+
+    font-size: clamp(28px,4vw,50px);
+
+    margin-bottom: 12px;
+}
+
+.register-box p {
+    position: relative;
+
+    color: var(--muted);
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+}
+
+.register-info {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.register-info span {
+    color: #b9cbd6;
+
+    font-weight: 600;
+}
+
+.register-info b {
+    color: var(--cyan);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.contact-card {
+    padding: 30px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: var(--card);
+
+    text-align: center;
+}
+
+.contact-icon {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    font-family: Orbitron;
+
+    font-size: 14px;
+
+    color: var(--cyan);
+
+    margin-bottom: 12px;
+}
+
+.contact-card p,
+.contact-card a {
+    color: var(--muted);
+
+    line-height: 1.6;
+
+    word-break: break-word;
+}
+
+.contact-card a:hover {
+    color: var(--cyan);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    padding: 35px 0;
+
+    text-align: center;
+
+    color: #70818d;
+}
+
+.footer-logo {
+    font-family: Orbitron;
+
+    color: var(--cyan);
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .poster-wrapper {
+        margin: auto;
+
+        max-width: 500px;
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        display: block;
+
+        padding-left: 50px;
+
+        position: relative;
+    }
+
+    .timeline-date {
+        text-align: left;
+
+        margin-bottom: 10px;
+    }
+
+    .timeline-dot {
+        position: absolute;
+
+        left: 13px;
+
+        top: 5px;
+
+        margin: 0;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content,
+    .timeline-item:nth-child(odd) .timeline-content {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date,
+    .timeline-item:nth-child(odd) .timeline-date {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media(max-width: 600px) {
+
+    section {
+        padding: 75px 0;
+    }
+
+    .hero {
+        padding-top: 110px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .stat:nth-child(2) {
+        border-right: 0;
+    }
+
+    .stat:nth-child(1),
+    .stat:nth-child(2) {
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .countdown {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .prizes {
+        grid-template-columns: 1fr;
+    }
+
+    .topics {
+        grid-template-columns: 1fr;
+    }
+
+    .register-box {
+        padding: 45px 20px;
+    }
+
+    .poster-label {
+        left: 5px;
+        bottom: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOADER
+========================= -->
+
+<div id="loader">
+    <div class="loader-box">
+        <div class="loader-ring"></div>
+
+        <div class="loader-title">
+            MECTROZ'26
+        </div>
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="#home" class="logo">
+            MEC<span>TROZ'26</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="#home">HOME</a>
+
+            <a href="#events">EVENTS</a>
+
+            <a href="#about">ABOUT</a>
+
+            <a href="#schedule">SCHEDULE</a>
+
+            <a href="#prizes">PRIZES</a>
+
+            <a href="#contact">CONTACT</a>
+
+        </div>
+
+        <a
+            class="nav-register"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfAlBM5Vvx3Lwv90vOiBKhy7RCJ-9JkUwMU9Xm0wqCfN6mD_w/viewform"
+            target="_blank"
+        >
+            REGISTER
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="badge">
+                INTERNATIONAL STUDENT SYMPOSIUM
+            </div>
+
+            <h1>
+                <span class="accent">MECTROZ</span>'26
+            </h1>
+
+            <h2>
+                Engineering the Future
+            </h2>
+
+            <p>
+                Emerging Technologies, Sustainable Innovation &
+                Intelligent Mechanical Systems
+            </p>
+
+            <p>
+                <strong style="color:#00e5ff;">
+                    Sustainable • Inclusive • Ethical • Responsible
+                </strong>
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfAlBM5Vvx3Lwv90vOiBKhy7RCJ-9JkUwMU9Xm0wqCfN6mD_w/viewform"
+                    target="_blank"
+                >
+                    REGISTER NOW →
+                </a>
+
+                <a
+                    class="btn btn-outline"
+                    href="#events"
+                >
+                    EXPLORE EVENTS
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="poster-wrapper">
+
+            <div class="poster-frame">
+
+                <img
+                    src="poster.png"
+                    alt="MECTROZ'26 Symposium Poster"
+                >
+
+            </div>
+
+            <div class="poster-label">
+                EGS PILLAY ENGINEERING COLLEGE
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+                <strong id="totalRegistrations">0</strong>
+                <span>REGISTRATIONS</span>
+            </div>
+
+            <div class="stat">
+                <strong>06</strong>
+                <span>EVENTS</span>
+            </div>
+
+            <div class="stat">
+                <strong>02</strong>
+                <span>EVENT DAYS</span>
+            </div>
+
+            <div class="stat">
+                <strong>₹100</strong>
+                <span>REGISTRATION FEE</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EVENTS
+========================= -->
+
+<section id="events">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                COMPETE • CREATE • INNOVATE
+            </div>
+
+            <h2>EVENT ARENA</h2>
+
+            <p>
+                Explore the technical and non-technical events
+                of MECTROZ'26.
+            </p>
+
+        </div>
+
+
+        <div class="filters">
+
+            <button
+                class="filter active"
+                data-filter="all"
+            >
+                ALL
+            </button>
+
+            <button
+                class="filter"
+                data-filter="technical"
+            >
+                TECHNICAL
+            </button>
+
+            <button
+                class="filter"
+                data-filter="nontechnical"
+            >
+                NON-TECHNICAL
+            </button>
+
+        </div>
+
+
+        <div class="events-grid">
+
+
+            <!-- PAPER -->
+
+            <div
+                class="event-card"
+                data-category="technical"
+            >
+
+                <div class="event-number">
+                    EVENT / 01
+                </div>
+
+                <div class="event-icon">
+                    📄
+                </div>
+
+                <h3>
+                    PAPER PRESENTATION
+                </h3>
+
+                <p>
+                    Present innovative ideas, research and
+                    engineering solutions across emerging
+                    mechanical and interdisciplinary domains.
+                </p>
+
+                <div class="event-meta">
+
+                    <span class="event-type">
+                        TECHNICAL
+                    </span>
+
+                    <span class="seats">
+                        <span id="paperRegistered">0</span>
+                        registered
+                    </span>
+
+                </div>
+
+                <div class="capacity">
+
+                    <div class="capacity-top">
+
+                        <span>
+                            REMAINING
+                        </span>
+
+                        <span id="paperRemaining">
+                            100
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            id="paperProgress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CAD -->
+
+            <div
+                class="event-card"
+                data-category="technical"
+            >
+
+                <div class="event-number">
+                    EVENT / 02
+                </div>
+
+                <div class="event-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    CAD MODELLING
+                </h3>
+
+                <p>
+                    Demonstrate your design thinking and
+                    modelling skills by creating accurate
+                    engineering models.
+                </p>
+
+                <div class="event-meta">
+
+                    <span class="event-type">
+                        TECHNICAL
+                    </span>
+
+                    <span class="seats">
+                        <span id="cadRegistered">0</span>
+                        registered
+                    </span>
+
+                </div>
+
+                <div class="capacity">
+
+                    <div class="capacity-top">
+
+                        <span>
+                            REMAINING
+                        </span>
+
+                        <span id="cadRemaining">
+                            50
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            id="cadProgress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROBOTICS -->
+
+            <div
+                class="event-card"
+                data-category="technical"
+            >
+
+                <div class="event-number">
+                    EVENT / 03
+                </div>
+
+                <div class="event-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    ROBOTICS
+                </h3>
+
+                <p>
+                    Explore intelligent machines, automation,
+                    robotics and innovative mechanical systems.
+                </p>
+
+                <div class="event-meta">
+
+                    <span class="event-type">
+                        TECHNICAL
+                    </span>
+
+                    <span class="seats">
+                        <span id="roboticsRegistered">0</span>
+                        registered
+                    </span>
+
+                </div>
+
+                <div class="capacity">
+
+                    <div class="capacity-top">
+
+                        <span>
+                            REMAINING
+                        </span>
+
+                        <span id="roboticsRemaining">
+                            50
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            id="roboticsProgress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AUTOMOTIVE -->
+
+            <div
+                class="event-card"
+                data-category="technical"
+            >
+
+                <div class="event-number">
+                    EVENT / 04
+                </div>
+
+                <div class="event-icon">
+                    🚗
+                </div>
+
+                <h3>
+                    AUTOMOTIVE ENGINEERING
+                </h3>
+
+                <p>
+                    Dive into automotive technologies,
+                    vehicle systems, mobility and future
+                    transportation solutions.
+                </p>
+
+                <div class="event-meta">
+
+                    <span class="event-type">
+                        TECHNICAL
+                    </span>
+
+                    <span class="seats">
+                        <span id="automotiveRegistered">0</span>
+                        registered
+                    </span>
+
+                </div>
+
+                <div class="capacity">
+
+                    <div class="capacity-top">
+
+                        <span>
+                            REMAINING
+                        </span>
+
+                        <span id="automotiveRemaining">
+                            50
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            id="automotiveProgress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MECHANICAL -->
+
+            <div
+                class="event-card"
+                data-category="technical"
+            >
+
+                <div class="event-number">
+                    EVENT / 05
+                </div>
+
+                <div class="event-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    MECHANICAL INNOVATION
+                </h3>
+
+                <p>
+                    Showcase creative engineering concepts,
+                    sustainable solutions and intelligent
+                    mechanical innovations.
+                </p>
+
+                <div class="event-meta">
+
+                    <span class="event-type">
+                        TECHNICAL
+                    </span>
+
+                    <span class="seats">
+                        <span id="mechanicalRegistered">0</span>
+                        registered
+                    </span>
+
+                </div>
+
+                <div class="capacity">
+
+                    <div class="capacity-top">
+
+                        <span>
+                            REMAINING
+                        </span>
+
+                        <span id="mechanicalRemaining">
+                            50
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            id="mechanicalProgress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RC -->
+
+            <div
+                class="event-card"
+                data-category="nontechnical"
+            >
+
+                <div class="event-number">
+                    EVENT / 06
+                </div>
+
+                <div class="event-icon">
+                    🏎️
+                </div>
+
+                <h3>
+                    RC-CAR
+                </h3>
+
+                <p>
+                    Control, race and experience the excitement
+                    of remote-controlled cars in a competitive
+                    engineering challenge.
+                </p>
+
+                <div class="event-meta">
+
+                    <span class="event-type">
+                        NON-TECHNICAL
+                    </span>
+
+                    <span class="seats">
+                        <span id="rcRegistered">0</span>
+                        registered
+                    </span>
+
+                </div>
+
+                <div class="capacity">
+
+                    <div class="capacity-top">
+
+                        <span>
+                            REMAINING
+                        </span>
+
+                        <span id="rcRemaining">
+                            50
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            id="rcProgress"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                ABOUT THE SYMPOSIUM
+            </div>
+
+            <h2>ENGINEERING THE FUTURE</h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-box">
+
+                <h3>
+                    MECTROZ'26
+                </h3>
+
+                <p>
+                    MECTROZ'26 is an International Student
+                    Symposium organized by the Department of
+                    Mechanical Engineering, EGS Pillay
+                    Engineering College.
+                </p>
+
+                <br>
+
+                <p>
+                    The symposium brings together students,
+                    innovators and engineering enthusiasts to
+                    explore emerging technologies, sustainable
+                    innovation and intelligent mechanical systems.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <h3>
+                    CORE TOPICS
+                </h3>
+
+                <div class="topics">
+
+                    <div class="topic">
+                        Thermodynamics
+                    </div>
+
+                    <div class="topic">
+                        Fluid Mechanics
+                    </div>
+
+                    <div class="topic">
+                        Machine Design
+                    </div>
+
+                    <div class="topic">
+                        Manufacturing
+                    </div>
+
+                    <div class="topic">
+                        Automotive Engineering
+                    </div>
+
+                    <div class="topic">
+                        Robotics
+                    </div>
+
+                    <div class="topic">
+                        CAD Modelling
+                    </div>
+
+                    <div class="topic">
+                        Emerging Technologies
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SCHEDULE
+========================= -->
+
+<section id="schedule">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                MARK YOUR CALENDAR
+            </div>
+
+            <h2>EVENT SCHEDULE</h2>
+
+            <p>
+                Two days. Two different experiences.
+                One engineering future.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <h3>
+                        DAY 01 — ONLINE
+                    </h3>
+
+                    <p>
+                        Fully Online Symposium activities,
+                        presentations and virtual participation.
+                    </p>
+
+                </div>
+
+                <div class="timeline-date">
+
+                    14 OCT<br>
+                    2026
+
+                    <div class="timeline-dot"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-content">
+
+                    <h3>
+                        DAY 02 — CAMPUS
+                    </h3>
+
+                    <p>
+                        In-person technical and non-technical
+                        events at EGS Pillay Engineering College.
+                    </p>
+
+                </div>
+
+                <div class="timeline-date">
+
+                    15 OCT<br>
+                    2026
+
+                    <div class="timeline-dot"></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<section class="countdown-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                SYSTEM COUNTDOWN
+            </div>
+
+            <h2>
+                MECTROZ'26 IS APPROACHING
+            </h2>
+
+            <p>
+                Get ready to engineer the future.
+            </p>
+
+        </div>
+
+
+        <div class="countdown">
+
+            <div class="time-box">
+
+                <strong id="days">
+                    00
+                </strong>
+
+                <span>
+                    DAYS
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="hours">
+                    00
+                </strong>
+
+                <span>
+                    HOURS
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="minutes">
+                    00
+                </strong>
+
+                <span>
+                    MINUTES
+                </span>
+
+            </div>
+
+
+            <div class="time-box">
+
+                <strong id="seconds">
+                    00
+                </strong>
+
+                <span>
+                    SECONDS
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRIZES
+========================= -->
+
+<section id="prizes">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                RECOGNITION
+            </div>
+
+            <h2>
+                PRIZES
+            </h2>
+
+            <p>
+                Showcase your talent. Compete with innovators.
+                Take home the recognition.
+            </p>
+
+        </div>
+
+
+        <div class="prizes">
+
+
+            <div class="prize">
+
+                <div class="prize-icon">
+                    🥇
+                </div>
+
+                <h3>
+                    1ST PLACE
+                </h3>
+
+                <div class="prize-value">
+                    ₹5,000
+                </div>
+
+            </div>
+
+
+            <div class="prize">
+
+                <div class="prize-icon">
+                    🥈
+                </div>
+
+                <h3>
+                    2ND PLACE
+                </h3>
+
+                <div class="prize-value">
+                    ₹3,000
+                </div>
+
+            </div>
+
+
+            <div class="prize">
+
+                <div class="prize-icon">
+                    🥉
+                </div>
+
+                <h3>
+                    3RD PLACE
+                </h3>
+
+                <div class="prize-value">
+                    ₹1,000
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REGISTRATION
+========================= -->
+
+<section id="register">
+
+    <div class="container">
+
+        <div class="register-box">
+
+            <h2>
+                READY TO COMPETE?
+            </h2>
+
+            <p>
+                Secure your participation in MECTROZ'26.
+            </p>
+
+
+            <div class="register-info">
+
+                <span>
+                    Registration:
+                    <b>₹100</b>
+                </span>
+
+                <span>
+                    Venue:
+                    <b>GG Block</b>
+                </span>
+
+                <span>
+                    Date:
+                    <b>14–15 OCT 2026</b>
+                </span>
+
+            </div>
+
+
+            <a
+                class="btn btn-primary"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfAlBM5Vvx3Lwv90vOiBKhy7RCJ-9JkUwMU9Xm0wqCfN6mD_w/viewform"
+                target="_blank"
+            >
+                OPEN REGISTRATION FORM →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                GET IN TOUCH
+            </div>
+
+            <h2>
+                CONTACT
+            </h2>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <h3>
+                    EMAIL
+                </h3>
+
+                <p>
+                    <a href="mailto:niyasdeen603@gmail.com">
+                        niyasdeen603@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <a href="mailto:mectroz@gmail.com">
+                        mectroz@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    PHONE
+                </h3>
+
+                <p>
+                    <a href="tel:+919994175392">
+                        +91 99941 75392
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>
+                    VENUE
+                </h3>
+
+                <p>
+                    EGS Pillay Engineering College<br>
+                    GG Block<br>
+                    Old Nagore Main Road, Thethi<br>
+                    Nagapattinam, Tamil Nadu - 611002
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-logo">
+            MECTROZ'26
+        </div>
+
+        <p>
+            International Student Symposium on Engineering the Future
+        </p>
+
+        <p style="margin-top:8px;">
+            © 2026 EGS Pillay Engineering College • Department of Mechanical Engineering
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   LOADER
+========================================== */
+
+window.addEventListener("load", function() {
+
+    setTimeout(function() {
+
+        const loader =
+            document.getElementById("loader");
+
+        loader.style.opacity = "0";
+
+        setTimeout(function() {
+            loader.style.display = "none";
+        }, 700);
+
+    }, 700);
+
+});
+
+
+/* ==========================================
+   GOOGLE APPS SCRIPT API
+========================================== */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzUCkadDnu22G-B-NkoRGSbui31uj5vfuQVWTbqtyT-BGCbzjn6sxspD6571F11Xt5E/exec";
+
+
+/* ==========================================
+   LOAD LIVE REGISTRATION DATA
+========================================== */
+
+async function loadRegistrationData() {
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL +
+                "?t=" +
+                Date.now()
+            );
+
+        if (!response.ok) {
+
+            throw new Error(
+                "API Error: " +
+                response.status
+            );
+
+        }
+
+        const data =
+            await response.json();
+
+
+        /* TOTAL */
+
+        const total =
+            document.getElementById(
+                "totalRegistrations"
+            );
+
+        if (total) {
+
+            total.innerText =
+                data.totalRegistrations || 0;
+
+        }
+
+
+        /* EVENTS */
+
+        if (data.events) {
+
+            updateEvent(
+                "paper",
+                data.events.paper
+            );
+
+            updateEvent(
+                "cad",
+                data.events.cad
+            );
+
+            updateEvent(
+                "robotics",
+                data.events.robotics
+            );
+
+            updateEvent(
+                "automotive",
+                data.events.automotive
+            );
+
+            updateEvent(
+                "mechanical",
+                data.events.mechanical
+            );
+
+            updateEvent(
+                "rc",
+                data.events.rc
+            );
+
+        }
+
+    }
+    catch(error) {
+
+        console.error(
+            "Registration API Error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   UPDATE EVENT
+========================================== */
+
+function updateEvent(
+    eventName,
+    eventData
+) {
+
+    if (!eventData) {
+        return;
+    }
+
+
+    const registered =
+        document.getElementById(
+            eventName +
+            "Registered"
+        );
+
+
+    const remaining =
+        document.getElementById(
+            eventName +
+            "Remaining"
+        );
+
+
+    const progress =
+        document.getElementById(
+            eventName +
+            "Progress"
+        );
+
+
+    if (registered) {
+
+        registered.innerText =
+            eventData.registered;
+
+    }
+
+
+    if (remaining) {
+
+        remaining.innerText =
+            eventData.remaining;
+
+    }
+
+
+    if (progress) {
+
+        progress.style.width =
+            eventData.percentage +
+            "%";
+
+    }
+
+}
+
+
+/* ==========================================
+   INITIAL API LOAD
+========================================== */
+
+loadRegistrationData();
+
+
+/* ==========================================
+   AUTO REFRESH EVERY 30 SECONDS
+========================================== */
+
+setInterval(
+    loadRegistrationData,
+    30000
+);
+
+
+/* ==========================================
+   EVENT FILTER
+========================================== */
+
+const filterButtons =
+    document.querySelectorAll(".filter");
+
+const eventCards =
+    document.querySelectorAll(".event-card");
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function() {
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+            this.classList.add("active");
+
+
+            const filter =
+                this.dataset.filter;
+
+
+            eventCards.forEach(card => {
+
+                const category =
+                    card.dataset.category;
+
+
+                if (
+                    filter === "all" ||
+                    filter === category
+                ) {
+
+                    card.style.display =
+                        "block";
+
+                }
+                else {
+
+                    card.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+
+/* ==========================================
+   COUNTDOWN
+========================================== */
+
+/*
+   Day 02:
+   15 October 2026
+   09:00 AM
+*/
+
+const eventDate =
+    new Date(
+        "October 15, 2026 09:00:00"
+    ).getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        eventDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById(
+            "days"
+        ).innerText = "00";
+
+        document.getElementById(
+            "hours"
+        ).innerText = "00";
+
+        document.getElementById(
+            "minutes"
+        ).innerText = "00";
+
+        document.getElementById(
+            "seconds"
+        ).innerText = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60)
+            ) /
+            1000
+        );
+
+
+    document.getElementById(
+        "days"
+    ).innerText =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById(
+        "hours"
+    ).innerText =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById(
+        "minutes"
+    ).innerText =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById(
+        "seconds"
+    ).innerText =
+        String(seconds).padStart(2, "0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* ==========================================
+   CURSOR GLOW
+========================================== */
+
+const glow =
+    document.createElement("div");
+
+glow.style.position = "fixed";
+glow.style.width = "250px";
+glow.style.height = "250px";
+glow.style.borderRadius = "50%";
+glow.style.pointerEvents = "none";
+glow.style.background =
+    "radial-gradient(circle, rgba(0,229,255,.08), transparent 70%)";
+glow.style.transform =
+    "translate(-50%, -50%)";
+glow.style.zIndex = "-1";
+
+document.body.appendChild(glow);
+
+
+document.addEventListener(
+    "mousemove",
+    function(e) {
+
+        glow.style.left =
+            e.clientX + "px";
+
+        glow.style.top =
+            e.clientY + "px";
+
+    }
+);
+
+
+/* ==========================================
+   3D CARD EFFECT
+========================================== */
+
+document
+.querySelectorAll(".event-card")
+.forEach(card => {
+
+    card.addEventListener(
+        "mousemove",
+        function(e) {
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                e.clientX -
+                rect.left;
+
+            const y =
+                e.clientY -
+                rect.top;
+
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+
+            const rotateX =
+                (y - centerY) /
+                25;
+
+
+            const rotateY =
+                (centerX - x) /
+                25;
+
+
+            card.style.transform =
+                `perspective(800px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-5px)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function() {
+
+            card.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
