@@ -16,24 +16,42 @@ content="MECTROZ'26 - International Student Symposium on Engineering the Future.
 
 <style>
 
+/* =========================================================
+   PURPLE FUTURISTIC THEME
+========================================================= */
+
 :root {
-    --bg: #05070b;
-    --bg2: #080d14;
-    --card: rgba(13, 20, 30, 0.82);
-    --border: rgba(0, 229, 255, 0.25);
+    --bg: #06030d;
+    --bg2: #0d0618;
 
-    --cyan: #00e5ff;
-    --blue: #168cff;
-    --green: #00ff9d;
-    --yellow: #ffd500;
-    --orange: #ff8a00;
-    --red: #ff3158;
+    --card: rgba(22, 12, 38, 0.88);
 
-    --text: #f4fbff;
-    --muted: #8ea2b5;
+    --border: rgba(168, 85, 247, 0.28);
+
+    --cyan: #a855f7;
+    --blue: #7c3aed;
+    --green: #d946ef;
+
+    --yellow: #c084fc;
+    --orange: #e879f9;
+    --red: #f43f5e;
+
+    --text: #faf7ff;
+    --muted: #b6a8c9;
+
+    --purple-light: #c084fc;
+    --purple: #a855f7;
+    --purple-dark: #7c3aed;
+    --violet: #6d28d9;
+    --pink: #d946ef;
 
     --max: 1200px;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -47,11 +65,25 @@ html {
 
 body {
     background:
-        radial-gradient(circle at 20% 20%, rgba(0,229,255,.08), transparent 25%),
-        radial-gradient(circle at 80% 40%, rgba(0,255,157,.06), transparent 25%),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(168, 85, 247, .14),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(217, 70, 239, .10),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(124, 58, 237, .08),
+            transparent 30%
+        ),
         var(--bg);
 
     color: var(--text);
+
     font-family: 'Rajdhani', sans-serif;
 
     overflow-x: hidden;
@@ -59,16 +91,26 @@ body {
 
 body::before {
     content: "";
+
     position: fixed;
+
     inset: 0;
 
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        linear-gradient(
+            rgba(168, 85, 247, .035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(168, 85, 247, .035) 1px,
+            transparent 1px
+        );
 
     background-size: 45px 45px;
 
     pointer-events: none;
+
     z-index: -1;
 }
 
@@ -83,20 +125,26 @@ button {
 
 .container {
     width: min(92%, var(--max));
+
     margin: auto;
 }
 
-/* =========================
+
+/* =========================================================
    LOADER
-========================= */
+========================================================= */
 
 #loader {
     position: fixed;
+
     inset: 0;
-    background: #030508;
+
+    background: #030107;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     z-index: 99999;
@@ -110,10 +158,14 @@ button {
 
 .loader-ring {
     width: 80px;
+
     height: 80px;
 
-    border: 3px solid rgba(0,229,255,.15);
-    border-top-color: var(--cyan);
+    border: 3px solid rgba(168, 85, 247, .15);
+
+    border-top-color: var(--purple);
+
+    border-right-color: var(--pink);
 
     border-radius: 50%;
 
@@ -124,54 +176,72 @@ button {
 
 .loader-title {
     font-family: Orbitron;
+
     font-size: 18px;
+
     letter-spacing: 5px;
-    color: var(--cyan);
+
+    color: var(--purple-light);
+
+    text-shadow:
+        0 0 15px rgba(168, 85, 247, .7);
 }
 
 @keyframes spin {
+
     to {
         transform: rotate(360deg);
     }
+
 }
 
-/* =========================
+
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .navbar {
     position: fixed;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
 
     z-index: 999;
 
     backdrop-filter: blur(15px);
 
-    background: rgba(3,6,10,.72);
+    background: rgba(5, 2, 12, .78);
 
-    border-bottom: 1px solid rgba(0,229,255,.12);
+    border-bottom:
+        1px solid rgba(168, 85, 247, .15);
 }
 
 .nav-inner {
     min-height: 72px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
 .logo {
     font-family: Orbitron;
+
     font-weight: 800;
+
     font-size: 20px;
 
     letter-spacing: 3px;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
-    text-shadow: 0 0 18px rgba(0,229,255,.6);
+    text-shadow:
+        0 0 18px rgba(168, 85, 247, .65);
 }
 
 .logo span {
@@ -180,26 +250,33 @@ button {
 
 .nav-links {
     display: flex;
+
     gap: 25px;
 }
 
 .nav-links a {
-    color: #b9cad7;
+    color: #b9aeca;
+
     font-size: 15px;
+
     font-weight: 600;
 
     transition: .3s;
 }
 
 .nav-links a:hover {
-    color: var(--cyan);
+    color: var(--purple-light);
+
+    text-shadow:
+        0 0 12px rgba(168, 85, 247, .7);
 }
 
 .nav-register {
     padding: 10px 18px;
 
-    border: 1px solid var(--cyan);
-    color: var(--cyan);
+    border: 1px solid var(--purple);
+
+    color: var(--purple-light);
 
     border-radius: 4px;
 
@@ -209,20 +286,24 @@ button {
 }
 
 .nav-register:hover {
-    background: var(--cyan);
-    color: #001015;
+    background: var(--purple);
 
-    box-shadow: 0 0 25px rgba(0,229,255,.4);
+    color: white;
+
+    box-shadow:
+        0 0 25px rgba(168, 85, 247, .5);
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
 
     padding-top: 90px;
@@ -236,14 +317,17 @@ button {
     position: absolute;
 
     width: 500px;
+
     height: 500px;
 
     border-radius: 50%;
 
     right: -200px;
+
     top: 150px;
 
-    background: rgba(0,229,255,.08);
+    background:
+        rgba(168, 85, 247, .10);
 
     filter: blur(100px);
 
@@ -265,11 +349,13 @@ button {
 
     padding: 8px 14px;
 
-    border: 1px solid rgba(0,229,255,.35);
+    border:
+        1px solid rgba(168, 85, 247, .45);
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
-    background: rgba(0,229,255,.06);
+    background:
+        rgba(168, 85, 247, .07);
 
     font-family: Orbitron;
 
@@ -278,6 +364,9 @@ button {
     letter-spacing: 2px;
 
     margin-bottom: 22px;
+
+    box-shadow:
+        inset 0 0 20px rgba(168, 85, 247, .03);
 }
 
 .hero h1 {
@@ -293,17 +382,17 @@ button {
 }
 
 .hero h1 .accent {
-    color: var(--cyan);
+    color: var(--purple-light);
 
     text-shadow:
-        0 0 15px rgba(0,229,255,.5),
-        0 0 50px rgba(0,229,255,.15);
+        0 0 15px rgba(168, 85, 247, .6),
+        0 0 50px rgba(168, 85, 247, .2);
 }
 
 .hero h2 {
     font-size: clamp(18px, 2vw, 25px);
 
-    color: #d9e7ef;
+    color: #e9ddf7;
 
     font-weight: 600;
 
@@ -321,7 +410,14 @@ button {
 
     max-width: 680px;
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.hero p strong {
+    color: var(--purple-light) !important;
+
+    text-shadow:
+        0 0 12px rgba(168, 85, 247, .35);
 }
 
 .hero-buttons {
@@ -330,12 +426,15 @@ button {
     gap: 14px;
 
     flex-wrap: wrap;
+
+    margin-top: 10px;
 }
 
 .btn {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 14px 24px;
@@ -356,36 +455,51 @@ button {
 }
 
 .btn-primary {
-    background: var(--cyan);
+    background:
+        linear-gradient(
+            135deg,
+            var(--violet),
+            var(--purple),
+            var(--pink)
+        );
 
-    color: #001014;
+    color: white;
 
-    box-shadow: 0 0 25px rgba(0,229,255,.25);
+    box-shadow:
+        0 0 25px rgba(168, 85, 247, .25);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
 
-    box-shadow: 0 0 40px rgba(0,229,255,.5);
+    box-shadow:
+        0 0 40px rgba(168, 85, 247, .55);
 }
 
 .btn-outline {
-    border: 1px solid rgba(0,229,255,.4);
+    border:
+        1px solid rgba(168, 85, 247, .45);
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
-    background: rgba(0,229,255,.03);
+    background:
+        rgba(168, 85, 247, .04);
 }
 
 .btn-outline:hover {
-    background: rgba(0,229,255,.1);
+    background:
+        rgba(168, 85, 247, .12);
 
     transform: translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(168, 85, 247, .18);
 }
 
-/* =========================
-   HERO POSTER
-========================= */
+
+/* =========================================================
+   POSTER
+========================================================= */
 
 .poster-wrapper {
     position: relative;
@@ -401,11 +515,13 @@ button {
     padding: 8px;
 
     background:
-        linear-gradient(135deg,
-        rgba(0,229,255,.5),
-        transparent 30%,
-        transparent 70%,
-        rgba(0,255,157,.4));
+        linear-gradient(
+            135deg,
+            rgba(168, 85, 247, .8),
+            transparent 30%,
+            transparent 65%,
+            rgba(217, 70, 239, .65)
+        );
 
     clip-path: polygon(
         0 0,
@@ -415,6 +531,9 @@ button {
         6% 100%,
         0 93%
     );
+
+    box-shadow:
+        0 0 50px rgba(124, 58, 237, .12);
 }
 
 .poster-frame img {
@@ -422,7 +541,7 @@ button {
 
     display: block;
 
-    background: #080d13;
+    background: #08030f;
 
     clip-path: polygon(
         0 0,
@@ -438,11 +557,14 @@ button {
     position: absolute;
 
     bottom: 20px;
+
     left: -18px;
 
-    background: rgba(3,8,13,.9);
+    background:
+        rgba(7, 2, 15, .92);
 
-    border: 1px solid var(--cyan);
+    border:
+        1px solid var(--purple);
 
     padding: 10px 15px;
 
@@ -450,14 +572,18 @@ button {
 
     font-size: 11px;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     letter-spacing: 1px;
+
+    box-shadow:
+        0 0 20px rgba(168, 85, 247, .15);
 }
 
-/* =========================
+
+/* =========================================================
    STATS
-========================= */
+========================================================= */
 
 .stats {
     padding: 25px 0 80px;
@@ -466,10 +592,14 @@ button {
 .stats-grid {
     display: grid;
 
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
-    border-top: 1px solid rgba(255,255,255,.08);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-top:
+        1px solid rgba(168, 85, 247, .14);
+
+    border-bottom:
+        1px solid rgba(168, 85, 247, .14);
 }
 
 .stat {
@@ -477,7 +607,8 @@ button {
 
     text-align: center;
 
-    border-right: 1px solid rgba(255,255,255,.08);
+    border-right:
+        1px solid rgba(168, 85, 247, .12);
 }
 
 .stat:last-child {
@@ -491,9 +622,12 @@ button {
 
     font-size: 32px;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     margin-bottom: 7px;
+
+    text-shadow:
+        0 0 15px rgba(168, 85, 247, .3);
 }
 
 .stat span {
@@ -504,9 +638,10 @@ button {
     letter-spacing: 1px;
 }
 
-/* =========================
-   SECTION
-========================= */
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 section {
     padding: 100px 0;
@@ -519,7 +654,7 @@ section {
 }
 
 .eyebrow {
-    color: var(--cyan);
+    color: var(--purple-light);
 
     font-family: Orbitron;
 
@@ -528,6 +663,9 @@ section {
     letter-spacing: 4px;
 
     margin-bottom: 13px;
+
+    text-shadow:
+        0 0 12px rgba(168, 85, 247, .4);
 }
 
 .section-heading h2 {
@@ -548,9 +686,10 @@ section {
     margin: auto;
 }
 
-/* =========================
-   EVENT FILTER
-========================= */
+
+/* =========================================================
+   FILTERS
+========================================================= */
 
 .filters {
     display: flex;
@@ -565,11 +704,13 @@ section {
 }
 
 .filter {
-    border: 1px solid rgba(0,229,255,.2);
+    border:
+        1px solid rgba(168, 85, 247, .22);
 
-    background: rgba(0,229,255,.03);
+    background:
+        rgba(168, 85, 247, .03);
 
-    color: #a9bdc9;
+    color: #b9aac9;
 
     padding: 9px 15px;
 
@@ -582,21 +723,28 @@ section {
 
 .filter.active,
 .filter:hover {
-    background: rgba(0,229,255,.12);
+    background:
+        rgba(168, 85, 247, .13);
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
-    border-color: var(--cyan);
+    border-color:
+        var(--purple);
+
+    box-shadow:
+        0 0 18px rgba(168, 85, 247, .10);
 }
 
-/* =========================
+
+/* =========================================================
    EVENTS
-========================= */
+========================================================= */
 
 .events-grid {
     display: grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 20px;
 }
@@ -611,15 +759,19 @@ section {
     background:
         linear-gradient(
             145deg,
-            rgba(20,31,44,.9),
-            rgba(8,13,20,.9)
+            rgba(29, 15, 48, .94),
+            rgba(10, 5, 18, .95)
         );
 
-    border: 1px solid rgba(0,229,255,.13);
+    border:
+        1px solid rgba(168, 85, 247, .15);
 
     overflow: hidden;
 
-    transition: transform .35s, border-color .35s;
+    transition:
+        transform .35s,
+        border-color .35s,
+        box-shadow .35s;
 }
 
 .event-card::before {
@@ -627,29 +779,67 @@ section {
 
     position: absolute;
 
-    width: 100px;
-    height: 100px;
+    width: 140px;
 
-    right: -40px;
-    top: -40px;
+    height: 140px;
+
+    right: -60px;
+
+    top: -60px;
 
     border-radius: 50%;
 
-    background: rgba(0,229,255,.08);
+    background:
+        rgba(168, 85, 247, .09);
+
+    filter: blur(5px);
+}
+
+.event-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 3px;
+
+    height: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--purple),
+            var(--pink)
+        );
+
+    transition: .4s;
+}
+
+.event-card:hover::after {
+    height: 100%;
 }
 
 .event-card:hover {
-    transform: translateY(-8px) rotateX(2deg);
+    transform:
+        translateY(-8px)
+        rotateX(2deg);
 
-    border-color: rgba(0,229,255,.55);
+    border-color:
+        rgba(168, 85, 247, .55);
 
-    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        0 0 35px rgba(124,58,237,.10);
 }
 
 .event-number {
     font-family: Orbitron;
 
-    color: rgba(0,229,255,.35);
+    color:
+        rgba(168, 85, 247, .45);
 
     font-size: 12px;
 
@@ -660,20 +850,29 @@ section {
 
 .event-icon {
     width: 55px;
+
     height: 55px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    border: 1px solid rgba(0,229,255,.3);
+    border:
+        1px solid rgba(168, 85, 247, .3);
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     font-size: 25px;
 
     margin-bottom: 20px;
+
+    background:
+        rgba(168, 85, 247, .04);
+
+    box-shadow:
+        inset 0 0 20px rgba(168, 85, 247, .03);
 }
 
 .event-card h3 {
@@ -703,11 +902,12 @@ section {
 
     padding-top: 15px;
 
-    border-top: 1px solid rgba(255,255,255,.07);
+    border-top:
+        1px solid rgba(168, 85, 247, .08);
 }
 
 .event-type {
-    color: var(--cyan);
+    color: var(--purple-light);
 
     font-size: 12px;
 
@@ -717,14 +917,15 @@ section {
 }
 
 .seats {
-    color: #9db0bd;
+    color: #9f90ae;
 
     font-size: 13px;
 }
 
-/* =========================
-   PROGRESS
-========================= */
+
+/* =========================================================
+   CAPACITY
+========================================================= */
 
 .capacity {
     margin-top: 13px;
@@ -735,7 +936,7 @@ section {
 
     justify-content: space-between;
 
-    color: #8194a1;
+    color: #897a99;
 
     font-size: 11px;
 
@@ -745,7 +946,8 @@ section {
 .progress {
     height: 5px;
 
-    background: rgba(255,255,255,.08);
+    background:
+        rgba(255,255,255,.07);
 
     overflow: hidden;
 }
@@ -755,23 +957,31 @@ section {
 
     width: 0%;
 
-    background: linear-gradient(
-        90deg,
-        var(--cyan),
-        var(--green)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #6d28d9,
+            #a855f7,
+            #d946ef
+        );
 
-    transition: width .8s ease;
+    transition:
+        width .8s ease;
+
+    box-shadow:
+        0 0 10px rgba(168, 85, 247, .45);
 }
 
-/* =========================
+
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 35px;
 
@@ -781,9 +991,13 @@ section {
 .about-box {
     background: var(--card);
 
-    border: 1px solid rgba(255,255,255,.08);
+    border:
+        1px solid rgba(168, 85, 247, .12);
 
     padding: 35px;
+
+    box-shadow:
+        inset 0 0 40px rgba(168, 85, 247, .015);
 }
 
 .about-box h3 {
@@ -791,7 +1005,7 @@ section {
 
     margin-bottom: 18px;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 }
 
 .about-box p {
@@ -805,7 +1019,8 @@ section {
 .topics {
     display: grid;
 
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 10px;
 
@@ -813,18 +1028,33 @@ section {
 }
 
 .topic {
-    border: 1px solid rgba(0,229,255,.12);
+    border:
+        1px solid rgba(168, 85, 247, .12);
 
     padding: 12px;
 
-    color: #b8c9d4;
+    color: #b8a9c7;
 
-    background: rgba(0,229,255,.025);
+    background:
+        rgba(168, 85, 247, .025);
+
+    transition: .25s;
 }
 
-/* =========================
+.topic:hover {
+    border-color:
+        rgba(168, 85, 247, .4);
+
+    color: var(--purple-light);
+
+    background:
+        rgba(168, 85, 247, .07);
+}
+
+
+/* =========================================================
    TIMELINE
-========================= */
+========================================================= */
 
 .timeline {
     max-width: 900px;
@@ -841,20 +1071,29 @@ section {
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     top: 0;
+
     bottom: 0;
 
     width: 1px;
 
-    background: rgba(0,229,255,.25);
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(168, 85, 247, .55),
+            transparent
+        );
 }
 
 .timeline-item {
     display: grid;
 
-    grid-template-columns: 1fr 80px 1fr;
+    grid-template-columns:
+        1fr 80px 1fr;
 
     align-items: center;
 
@@ -864,15 +1103,25 @@ section {
 .timeline-content {
     background: var(--card);
 
-    border: 1px solid rgba(255,255,255,.08);
+    border:
+        1px solid rgba(168, 85, 247, .12);
 
     padding: 25px;
+
+    transition: .3s;
+}
+
+.timeline-content:hover {
+    border-color:
+        rgba(168, 85, 247, .35);
+
+    transform: translateY(-3px);
 }
 
 .timeline-content h3 {
     font-family: Orbitron;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     font-size: 18px;
 
@@ -897,38 +1146,52 @@ section {
 
 .timeline-dot {
     width: 14px;
+
     height: 14px;
 
-    background: var(--cyan);
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--pink)
+        );
 
     border-radius: 50%;
 
     margin: 10px auto;
 
-    box-shadow: 0 0 20px rgba(0,229,255,.7);
+    box-shadow:
+        0 0 20px rgba(168, 85, 247, .8);
 }
 
-.timeline-item:nth-child(odd) .timeline-content {
+.timeline-item:nth-child(odd)
+.timeline-content {
     grid-column: 1;
 }
 
-.timeline-item:nth-child(odd) .timeline-date {
+.timeline-item:nth-child(odd)
+.timeline-date {
     grid-column: 2;
 }
 
-.timeline-item:nth-child(even) .timeline-content {
+.timeline-item:nth-child(even)
+.timeline-content {
     grid-column: 3;
+
     grid-row: 1;
 }
 
-.timeline-item:nth-child(even) .timeline-date {
+.timeline-item:nth-child(even)
+.timeline-date {
     grid-column: 2;
+
     grid-row: 1;
 }
 
-/* =========================
+
+/* =========================================================
    COUNTDOWN
-========================= */
+========================================================= */
 
 .countdown-section {
     text-align: center;
@@ -936,7 +1199,7 @@ section {
     background:
         radial-gradient(
             circle at center,
-            rgba(0,229,255,.07),
+            rgba(168, 85, 247, .08),
             transparent 55%
         );
 }
@@ -944,7 +1207,8 @@ section {
 .countdown {
     display: grid;
 
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 15px;
 
@@ -956,9 +1220,14 @@ section {
 .time-box {
     padding: 25px 15px;
 
-    border: 1px solid rgba(0,229,255,.18);
+    border:
+        1px solid rgba(168, 85, 247, .18);
 
-    background: rgba(8,15,23,.8);
+    background:
+        rgba(13, 6, 23, .85);
+
+    box-shadow:
+        inset 0 0 30px rgba(168, 85, 247, .025);
 }
 
 .time-box strong {
@@ -968,9 +1237,10 @@ section {
 
     font-size: 42px;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
-    text-shadow: 0 0 20px rgba(0,229,255,.25);
+    text-shadow:
+        0 0 20px rgba(168, 85, 247, .35);
 }
 
 .time-box span {
@@ -981,14 +1251,16 @@ section {
     letter-spacing: 2px;
 }
 
-/* =========================
+
+/* =========================================================
    PRIZES
-========================= */
+========================================================= */
 
 .prizes {
     display: grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 20px;
 
@@ -1002,17 +1274,55 @@ section {
 
     padding: 40px 25px;
 
-    border: 1px solid rgba(255,255,255,.1);
+    border:
+        1px solid rgba(168, 85, 247, .13);
 
-    background: var(--card);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 12, 42, .9),
+            rgba(10, 5, 18, .9)
+        );
 
     transition: .3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.prize::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--purple),
+            var(--pink),
+            transparent
+        );
 }
 
 .prize:hover {
     transform: translateY(-8px);
 
-    border-color: rgba(0,229,255,.35);
+    border-color:
+        rgba(168, 85, 247, .4);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35),
+        0 0 30px rgba(168,85,247,.08);
 }
 
 .prize-icon {
@@ -1034,16 +1344,20 @@ section {
 .prize-value {
     font-family: Orbitron;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     font-size: 31px;
 
     font-weight: 800;
+
+    text-shadow:
+        0 0 18px rgba(168, 85, 247, .3);
 }
 
-/* =========================
+
+/* =========================================================
    REGISTER
-========================= */
+========================================================= */
 
 .register-box {
     position: relative;
@@ -1056,16 +1370,20 @@ section {
 
     text-align: center;
 
-    border: 1px solid rgba(0,229,255,.3);
+    border:
+        1px solid rgba(168, 85, 247, .35);
 
     background:
         linear-gradient(
             135deg,
-            rgba(0,229,255,.08),
-            rgba(0,255,157,.03)
+            rgba(168, 85, 247, .09),
+            rgba(217, 70, 239, .035)
         );
 
     overflow: hidden;
+
+    box-shadow:
+        0 0 60px rgba(124, 58, 237, .05);
 }
 
 .register-box::before {
@@ -1079,13 +1397,15 @@ section {
 
     font-weight: 900;
 
-    color: rgba(255,255,255,.015);
+    color:
+        rgba(255,255,255,.015);
 
     left: 50%;
 
     top: 50%;
 
-    transform: translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     pointer-events: none;
 }
@@ -1095,7 +1415,8 @@ section {
 
     font-family: Orbitron;
 
-    font-size: clamp(28px,4vw,50px);
+    font-size:
+        clamp(28px,4vw,50px);
 
     margin-bottom: 12px;
 }
@@ -1125,23 +1446,25 @@ section {
 }
 
 .register-info span {
-    color: #b9cbd6;
+    color: #b9a9c9;
 
     font-weight: 600;
 }
 
 .register-info b {
-    color: var(--cyan);
+    color: var(--purple-light);
 }
 
-/* =========================
+
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact-grid {
     display: grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 20px;
 }
@@ -1149,11 +1472,24 @@ section {
 .contact-card {
     padding: 30px;
 
-    border: 1px solid rgba(255,255,255,.08);
+    border:
+        1px solid rgba(168, 85, 247, .11);
 
     background: var(--card);
 
     text-align: center;
+
+    transition: .3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(168, 85, 247, .35);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
 }
 
 .contact-icon {
@@ -1167,7 +1503,7 @@ section {
 
     font-size: 14px;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     margin-bottom: 12px;
 }
@@ -1182,42 +1518,54 @@ section {
 }
 
 .contact-card a:hover {
-    color: var(--cyan);
+    color: var(--purple-light);
+
+    text-shadow:
+        0 0 10px rgba(168, 85, 247, .4);
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top:
+        1px solid rgba(168, 85, 247, .12);
 
     padding: 35px 0;
 
     text-align: center;
 
-    color: #70818d;
+    color: #786a88;
+
+    background:
+        rgba(5, 2, 10, .4);
 }
 
 .footer-logo {
     font-family: Orbitron;
 
-    color: var(--cyan);
+    color: var(--purple-light);
 
     font-size: 18px;
 
     letter-spacing: 3px;
 
     margin-bottom: 8px;
+
+    text-shadow:
+        0 0 15px rgba(168,85,247,.35);
 }
 
 footer p {
     font-size: 13px;
 }
 
-/* =========================
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width: 900px) {
 
@@ -1233,6 +1581,7 @@ footer p {
 
     .hero p {
         margin-left: auto;
+
         margin-right: auto;
     }
 
@@ -1247,7 +1596,8 @@ footer p {
     }
 
     .events-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .about-grid {
@@ -1286,18 +1636,28 @@ footer p {
         margin: 0;
     }
 
-    .timeline-item:nth-child(even) .timeline-content,
-    .timeline-item:nth-child(odd) .timeline-content {
+    .timeline-item:nth-child(even)
+    .timeline-content,
+
+    .timeline-item:nth-child(odd)
+    .timeline-content {
         grid-column: auto;
+
         grid-row: auto;
     }
 
-    .timeline-item:nth-child(even) .timeline-date,
-    .timeline-item:nth-child(odd) .timeline-date {
+    .timeline-item:nth-child(even)
+    .timeline-date,
+
+    .timeline-item:nth-child(odd)
+    .timeline-date {
         grid-column: auto;
+
         grid-row: auto;
     }
+
 }
+
 
 @media(max-width: 600px) {
 
@@ -1314,7 +1674,8 @@ footer p {
     }
 
     .stats-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .stat:nth-child(2) {
@@ -1323,7 +1684,8 @@ footer p {
 
     .stat:nth-child(1),
     .stat:nth-child(2) {
-        border-bottom: 1px solid rgba(255,255,255,.08);
+        border-bottom:
+            1px solid rgba(168,85,247,.1);
     }
 
     .events-grid {
@@ -1331,7 +1693,8 @@ footer p {
     }
 
     .countdown {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .prizes {
@@ -1348,33 +1711,42 @@ footer p {
 
     .poster-label {
         left: 5px;
+
         bottom: 10px;
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =======================================================
      LOADER
-========================= -->
+======================================================= -->
 
 <div id="loader">
+
     <div class="loader-box">
+
         <div class="loader-ring"></div>
 
         <div class="loader-title">
             MECTROZ'26
         </div>
+
     </div>
+
 </div>
 
 
-<!-- =========================
+
+<!-- =======================================================
      NAVBAR
-========================= -->
+======================================================= -->
 
 <nav class="navbar">
 
@@ -1384,21 +1756,35 @@ footer p {
             MEC<span>TROZ'26</span>
         </a>
 
+
         <div class="nav-links">
 
-            <a href="#home">HOME</a>
+            <a href="#home">
+                HOME
+            </a>
 
-            <a href="#events">EVENTS</a>
+            <a href="#events">
+                EVENTS
+            </a>
 
-            <a href="#about">ABOUT</a>
+            <a href="#about">
+                ABOUT
+            </a>
 
-            <a href="#schedule">SCHEDULE</a>
+            <a href="#schedule">
+                SCHEDULE
+            </a>
 
-            <a href="#prizes">PRIZES</a>
+            <a href="#prizes">
+                PRIZES
+            </a>
 
-            <a href="#contact">CONTACT</a>
+            <a href="#contact">
+                CONTACT
+            </a>
 
         </div>
+
 
         <a
             class="nav-register"
@@ -1413,13 +1799,15 @@ footer p {
 </nav>
 
 
-<!-- =========================
+
+<!-- =======================================================
      HERO
-========================= -->
+======================================================= -->
 
 <section class="hero" id="home">
 
     <div class="container hero-grid">
+
 
         <div>
 
@@ -1427,24 +1815,29 @@ footer p {
                 INTERNATIONAL STUDENT SYMPOSIUM
             </div>
 
+
             <h1>
                 <span class="accent">MECTROZ</span>'26
             </h1>
 
+
             <h2>
                 Engineering the Future
             </h2>
+
 
             <p>
                 Emerging Technologies, Sustainable Innovation &
                 Intelligent Mechanical Systems
             </p>
 
+
             <p>
-                <strong style="color:#00e5ff;">
+                <strong>
                     Sustainable • Inclusive • Ethical • Responsible
                 </strong>
             </p>
+
 
             <div class="hero-buttons">
 
@@ -1455,6 +1848,7 @@ footer p {
                 >
                     REGISTER NOW →
                 </a>
+
 
                 <a
                     class="btn btn-outline"
@@ -1468,6 +1862,7 @@ footer p {
         </div>
 
 
+
         <div class="poster-wrapper">
 
             <div class="poster-frame">
@@ -1479,20 +1874,23 @@ footer p {
 
             </div>
 
+
             <div class="poster-label">
                 EGS PILLAY ENGINEERING COLLEGE
             </div>
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      STATS
-========================= -->
+======================================================= -->
 
 <section class="stats">
 
@@ -1500,25 +1898,58 @@ footer p {
 
         <div class="stats-grid">
 
-            <div class="stat">
-                <strong id="totalRegistrations">0</strong>
-                <span>REGISTRATIONS</span>
-            </div>
 
             <div class="stat">
-                <strong>06</strong>
-                <span>EVENTS</span>
+
+                <strong id="totalRegistrations">
+                    0
+                </strong>
+
+                <span>
+                    REGISTRATIONS
+                </span>
+
             </div>
 
-            <div class="stat">
-                <strong>02</strong>
-                <span>EVENT DAYS</span>
-            </div>
 
             <div class="stat">
-                <strong>₹100</strong>
-                <span>REGISTRATION FEE</span>
+
+                <strong>
+                    06
+                </strong>
+
+                <span>
+                    EVENTS
+                </span>
+
             </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    02
+                </strong>
+
+                <span>
+                    EVENT DAYS
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    ₹100
+                </strong>
+
+                <span>
+                    REGISTRATION FEE
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -1527,13 +1958,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      EVENTS
-========================= -->
+======================================================= -->
 
 <section id="events">
 
     <div class="container">
+
 
         <div class="section-heading">
 
@@ -1541,7 +1974,9 @@ footer p {
                 COMPETE • CREATE • INNOVATE
             </div>
 
-            <h2>EVENT ARENA</h2>
+            <h2>
+                EVENT ARENA
+            </h2>
 
             <p>
                 Explore the technical and non-technical events
@@ -1549,6 +1984,7 @@ footer p {
             </p>
 
         </div>
+
 
 
         <div class="filters">
@@ -1577,10 +2013,11 @@ footer p {
         </div>
 
 
+
         <div class="events-grid">
 
 
-            <!-- PAPER -->
+            <!-- PAPER PRESENTATION -->
 
             <div
                 class="event-card"
@@ -1612,11 +2049,14 @@ footer p {
                     </span>
 
                     <span class="seats">
-                        <span id="paperRegistered">0</span>
+                        <span id="paperRegistered">
+                            0
+                        </span>
                         registered
                     </span>
 
                 </div>
+
 
                 <div class="capacity">
 
@@ -1633,15 +2073,18 @@ footer p {
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
                             id="paperProgress"
                         ></div>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- CAD -->
@@ -1676,11 +2119,14 @@ footer p {
                     </span>
 
                     <span class="seats">
-                        <span id="cadRegistered">0</span>
+                        <span id="cadRegistered">
+                            0
+                        </span>
                         registered
                     </span>
 
                 </div>
+
 
                 <div class="capacity">
 
@@ -1697,15 +2143,18 @@ footer p {
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
                             id="cadProgress"
                         ></div>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- ROBOTICS -->
@@ -1739,11 +2188,14 @@ footer p {
                     </span>
 
                     <span class="seats">
-                        <span id="roboticsRegistered">0</span>
+                        <span id="roboticsRegistered">
+                            0
+                        </span>
                         registered
                     </span>
 
                 </div>
+
 
                 <div class="capacity">
 
@@ -1760,15 +2212,18 @@ footer p {
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
                             id="roboticsProgress"
                         ></div>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- AUTOMOTIVE -->
@@ -1803,11 +2258,14 @@ footer p {
                     </span>
 
                     <span class="seats">
-                        <span id="automotiveRegistered">0</span>
+                        <span id="automotiveRegistered">
+                            0
+                        </span>
                         registered
                     </span>
 
                 </div>
+
 
                 <div class="capacity">
 
@@ -1824,15 +2282,18 @@ footer p {
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
                             id="automotiveProgress"
                         ></div>
+
                     </div>
 
                 </div>
 
             </div>
+
 
 
             <!-- MECHANICAL -->
@@ -1867,11 +2328,14 @@ footer p {
                     </span>
 
                     <span class="seats">
-                        <span id="mechanicalRegistered">0</span>
+                        <span id="mechanicalRegistered">
+                            0
+                        </span>
                         registered
                     </span>
 
                 </div>
+
 
                 <div class="capacity">
 
@@ -1888,10 +2352,12 @@ footer p {
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
                             id="mechanicalProgress"
                         ></div>
+
                     </div>
 
                 </div>
@@ -1899,7 +2365,8 @@ footer p {
             </div>
 
 
-            <!-- RC -->
+
+            <!-- RC CAR -->
 
             <div
                 class="event-card"
@@ -1931,11 +2398,14 @@ footer p {
                     </span>
 
                     <span class="seats">
-                        <span id="rcRegistered">0</span>
+                        <span id="rcRegistered">
+                            0
+                        </span>
                         registered
                     </span>
 
                 </div>
+
 
                 <div class="capacity">
 
@@ -1952,10 +2422,12 @@ footer p {
                     </div>
 
                     <div class="progress">
+
                         <div
                             class="progress-bar"
                             id="rcProgress"
                         ></div>
+
                     </div>
 
                 </div>
@@ -1970,13 +2442,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      ABOUT
-========================= -->
+======================================================= -->
 
 <section id="about">
 
     <div class="container">
+
 
         <div class="section-heading">
 
@@ -1984,12 +2458,16 @@ footer p {
                 ABOUT THE SYMPOSIUM
             </div>
 
-            <h2>ENGINEERING THE FUTURE</h2>
+            <h2>
+                ENGINEERING THE FUTURE
+            </h2>
 
         </div>
 
 
+
         <div class="about-grid">
+
 
             <div class="about-box">
 
@@ -2016,11 +2494,13 @@ footer p {
             </div>
 
 
+
             <div class="about-box">
 
                 <h3>
                     CORE TOPICS
                 </h3>
+
 
                 <div class="topics">
 
@@ -2060,6 +2540,7 @@ footer p {
 
             </div>
 
+
         </div>
 
     </div>
@@ -2067,13 +2548,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      SCHEDULE
-========================= -->
+======================================================= -->
 
 <section id="schedule">
 
     <div class="container">
+
 
         <div class="section-heading">
 
@@ -2081,7 +2564,9 @@ footer p {
                 MARK YOUR CALENDAR
             </div>
 
-            <h2>EVENT SCHEDULE</h2>
+            <h2>
+                EVENT SCHEDULE
+            </h2>
 
             <p>
                 Two days. Two different experiences.
@@ -2089,6 +2574,7 @@ footer p {
             </p>
 
         </div>
+
 
 
         <div class="timeline">
@@ -2109,6 +2595,7 @@ footer p {
 
                 </div>
 
+
                 <div class="timeline-date">
 
                     14 OCT<br>
@@ -2119,6 +2606,7 @@ footer p {
                 </div>
 
             </div>
+
 
 
             <div class="timeline-item">
@@ -2135,6 +2623,7 @@ footer p {
                     </p>
 
                 </div>
+
 
                 <div class="timeline-date">
 
@@ -2155,13 +2644,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      COUNTDOWN
-========================= -->
+======================================================= -->
 
 <section class="countdown-section">
 
     <div class="container">
+
 
         <div class="section-heading">
 
@@ -2180,7 +2671,9 @@ footer p {
         </div>
 
 
+
         <div class="countdown">
+
 
             <div class="time-box">
 
@@ -2233,6 +2726,7 @@ footer p {
 
             </div>
 
+
         </div>
 
     </div>
@@ -2240,13 +2734,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      PRIZES
-========================= -->
+======================================================= -->
 
 <section id="prizes">
 
     <div class="container">
+
 
         <div class="section-heading">
 
@@ -2264,6 +2760,7 @@ footer p {
             </p>
 
         </div>
+
 
 
         <div class="prizes">
@@ -2327,13 +2824,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      REGISTRATION
-========================= -->
+======================================================= -->
 
 <section id="register">
 
     <div class="container">
+
 
         <div class="register-box">
 
@@ -2381,13 +2880,15 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      CONTACT
-========================= -->
+======================================================= -->
 
 <section id="contact">
 
     <div class="container">
+
 
         <div class="section-heading">
 
@@ -2400,6 +2901,7 @@ footer p {
             </h2>
 
         </div>
+
 
 
         <div class="contact-grid">
@@ -2430,6 +2932,7 @@ footer p {
             </div>
 
 
+
             <div class="contact-card">
 
                 <div class="contact-icon">
@@ -2447,6 +2950,7 @@ footer p {
                 </p>
 
             </div>
+
 
 
             <div class="contact-card">
@@ -2476,9 +2980,10 @@ footer p {
 </section>
 
 
-<!-- =========================
+
+<!-- =======================================================
      FOOTER
-========================= -->
+======================================================= -->
 
 <footer>
 
@@ -2493,7 +2998,8 @@ footer p {
         </p>
 
         <p style="margin-top:8px;">
-            © 2026 EGS Pillay Engineering College • Department of Mechanical Engineering
+            © 2026 EGS Pillay Engineering College
+            • Department of Mechanical Engineering
         </p>
 
     </div>
@@ -2501,11 +3007,12 @@ footer p {
 </footer>
 
 
+
 <script>
 
-/* ==========================================
+/* =========================================================
    LOADER
-========================================== */
+========================================================= */
 
 window.addEventListener("load", function() {
 
@@ -2517,7 +3024,9 @@ window.addEventListener("load", function() {
         loader.style.opacity = "0";
 
         setTimeout(function() {
+
             loader.style.display = "none";
+
         }, 700);
 
     }, 700);
@@ -2525,17 +3034,18 @@ window.addEventListener("load", function() {
 });
 
 
-/* ==========================================
+/* =========================================================
    GOOGLE APPS SCRIPT API
-========================================== */
+   LIVE GOOGLE SHEETS REGISTRATION DATA
+========================================================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbzUCkadDnu22G-B-NkoRGSbui31uj5vfuQVWTbqtyT-BGCbzjn6sxspD6571F11Xt5E/exec";
 
 
-/* ==========================================
+/* =========================================================
    LOAD LIVE REGISTRATION DATA
-========================================== */
+========================================================= */
 
 async function loadRegistrationData() {
 
@@ -2548,6 +3058,7 @@ async function loadRegistrationData() {
                 Date.now()
             );
 
+
         if (!response.ok) {
 
             throw new Error(
@@ -2557,16 +3068,18 @@ async function loadRegistrationData() {
 
         }
 
+
         const data =
             await response.json();
 
 
-        /* TOTAL */
+        /* TOTAL REGISTRATIONS */
 
         const total =
             document.getElementById(
                 "totalRegistrations"
             );
+
 
         if (total) {
 
@@ -2576,7 +3089,7 @@ async function loadRegistrationData() {
         }
 
 
-        /* EVENTS */
+        /* EVENT DATA */
 
         if (data.events) {
 
@@ -2625,9 +3138,9 @@ async function loadRegistrationData() {
 }
 
 
-/* ==========================================
-   UPDATE EVENT
-========================================== */
+/* =========================================================
+   UPDATE EVENT REGISTRATION
+========================================================= */
 
 function updateEvent(
     eventName,
@@ -2635,7 +3148,9 @@ function updateEvent(
 ) {
 
     if (!eventData) {
+
         return;
+
     }
 
 
@@ -2687,16 +3202,16 @@ function updateEvent(
 }
 
 
-/* ==========================================
-   INITIAL API LOAD
-========================================== */
+/* =========================================================
+   INITIAL REGISTRATION LOAD
+========================================================= */
 
 loadRegistrationData();
 
 
-/* ==========================================
+/* =========================================================
    AUTO REFRESH EVERY 30 SECONDS
-========================================== */
+========================================================= */
 
 setInterval(
     loadRegistrationData,
@@ -2704,12 +3219,13 @@ setInterval(
 );
 
 
-/* ==========================================
+/* =========================================================
    EVENT FILTER
-========================================== */
+========================================================= */
 
 const filterButtons =
     document.querySelectorAll(".filter");
+
 
 const eventCards =
     document.querySelectorAll(".event-card");
@@ -2721,6 +3237,7 @@ filterButtons.forEach(button => {
         "click",
         function() {
 
+
             filterButtons.forEach(btn => {
 
                 btn.classList.remove(
@@ -2729,7 +3246,10 @@ filterButtons.forEach(button => {
 
             });
 
-            this.classList.add("active");
+
+            this.classList.add(
+                "active"
+            );
 
 
             const filter =
@@ -2766,14 +3286,14 @@ filterButtons.forEach(button => {
 });
 
 
-/* ==========================================
+/* =========================================================
    COUNTDOWN
-========================================== */
+========================================================= */
 
 /*
-   Day 02:
-   15 October 2026
-   09:00 AM
+    DAY 02
+    15 OCTOBER 2026
+    09:00 AM
 */
 
 const eventDate =
@@ -2787,6 +3307,7 @@ function updateCountdown() {
     const now =
         new Date().getTime();
 
+
     const distance =
         eventDate - now;
 
@@ -2797,17 +3318,21 @@ function updateCountdown() {
             "days"
         ).innerText = "00";
 
+
         document.getElementById(
             "hours"
         ).innerText = "00";
+
 
         document.getElementById(
             "minutes"
         ).innerText = "00";
 
+
         document.getElementById(
             "seconds"
         ).innerText = "00";
+
 
         return;
 
@@ -2854,30 +3379,43 @@ function updateCountdown() {
     document.getElementById(
         "days"
     ).innerText =
-        String(days).padStart(2, "0");
+        String(days).padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "hours"
     ).innerText =
-        String(hours).padStart(2, "0");
+        String(hours).padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "minutes"
     ).innerText =
-        String(minutes).padStart(2, "0");
+        String(minutes).padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "seconds"
     ).innerText =
-        String(seconds).padStart(2, "0");
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 
 }
 
 
 updateCountdown();
+
 
 setInterval(
     updateCountdown,
@@ -2885,25 +3423,49 @@ setInterval(
 );
 
 
-/* ==========================================
-   CURSOR GLOW
-========================================== */
+/* =========================================================
+   PURPLE CURSOR GLOW
+========================================================= */
 
 const glow =
     document.createElement("div");
 
-glow.style.position = "fixed";
-glow.style.width = "250px";
-glow.style.height = "250px";
-glow.style.borderRadius = "50%";
-glow.style.pointerEvents = "none";
+
+glow.style.position =
+    "fixed";
+
+
+glow.style.width =
+    "250px";
+
+
+glow.style.height =
+    "250px";
+
+
+glow.style.borderRadius =
+    "50%";
+
+
+glow.style.pointerEvents =
+    "none";
+
+
 glow.style.background =
-    "radial-gradient(circle, rgba(0,229,255,.08), transparent 70%)";
+    "radial-gradient(circle, rgba(168,85,247,.14), transparent 70%)";
+
+
 glow.style.transform =
     "translate(-50%, -50%)";
-glow.style.zIndex = "-1";
 
-document.body.appendChild(glow);
+
+glow.style.zIndex =
+    "-1";
+
+
+document.body.appendChild(
+    glow
+);
 
 
 document.addEventListener(
@@ -2913,6 +3475,7 @@ document.addEventListener(
         glow.style.left =
             e.clientX + "px";
 
+
         glow.style.top =
             e.clientY + "px";
 
@@ -2920,24 +3483,28 @@ document.addEventListener(
 );
 
 
-/* ==========================================
-   3D CARD EFFECT
-========================================== */
+/* =========================================================
+   3D EVENT CARD EFFECT
+========================================================= */
 
 document
 .querySelectorAll(".event-card")
 .forEach(card => {
 
+
     card.addEventListener(
         "mousemove",
         function(e) {
 
+
             const rect =
                 card.getBoundingClientRect();
+
 
             const x =
                 e.clientX -
                 rect.left;
+
 
             const y =
                 e.clientY -
@@ -2946,6 +3513,7 @@ document
 
             const centerX =
                 rect.width / 2;
+
 
             const centerY =
                 rect.height / 2;
